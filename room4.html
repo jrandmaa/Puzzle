@@ -65,6 +65,7 @@
 
     <title>The Dark</title>
 </head>
+<script src="libs/howler.js"></script>
 <body onmousemove="ambient()">
     
     <!-- <nav class="ui three item menu">
@@ -117,11 +118,15 @@ const changeImage = () => {
     myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
 
 }*/
+
+const soundfx = new Howl({src: 'audio/item-pickup.mp3'});
+
 const ambient = () => {
     document.getElementById('bgmusic').play();
 }
 
 function lightTorch(){
+    
     document.getElementById('bgmusic').play();
     document.getElementById('torchimg').src='img/room4/torch.gif';
     document.body.style.backgroundImage = "url('img/room4/cave-lit.png')";
@@ -130,6 +135,7 @@ function lightTorch(){
 }
 
 function clickIdol(){
+    soundfx.play();
     document.getElementById('idolimg').src='img/empty.png';
     document.getElementById('pickup').play();  
 }
