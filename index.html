@@ -135,14 +135,16 @@
 -event on click
 -change url of links to add new info
 */
+const ambient = () => {
+    document.getElementById('bgmusic').play();
+}
+
 const queryString = window.location.search;
 document.getElementById("content").innerHTML = queryString;
 const myImageElement = document.body.querySelector('img');
 myImageElement.src = `${pathNames[1]}`;
 
-const ambient = () => {
-    document.getElementById('bgmusic').play();
-}
+
 
 </script>
 
