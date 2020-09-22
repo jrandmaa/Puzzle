@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <audio id="bgmusic" src="audio/room3-amb.wav" preload="auto"></audio>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     
     <style>
@@ -61,7 +61,7 @@
 
     <title>The Cave</title>
 </head>
-<body onclick="changeImage()">
+<body onmousemove="ambient()">
     
     <!-- <nav class="ui three item menu">
 
@@ -70,13 +70,14 @@
         <a class="item" href="pageThree.html">&#8966;</a>
 
     </nav> -->
-
+    <a href="room4.html">
     <div class="wrapper">
         <!--<img src="img-sq/0.jpeg" alt="">-->
         <div class="statue">
             <div class="image"></div>
         </div>
     </div>
+    </a>
 
 
 
@@ -103,6 +104,9 @@ const changeImage = () => {
     myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
 
 }*/
+const ambient = () => {
+    document.getElementById('bgmusic').play();
+}
 
 </script>
 

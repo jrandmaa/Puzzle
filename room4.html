@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    
+    <audio id="bgmusic" src="audio/room4-amb.wav" preload="auto"></audio>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     
     <style>
@@ -65,7 +65,7 @@
 
     <title>The Dark</title>
 </head>
-<body onclick="changeImage()">
+<body onmousemove="ambient()">
     
     <!-- <nav class="ui three item menu">
 
@@ -79,6 +79,9 @@
         
         <div class="water">
             <div class="statue">
+                <a href="room3.html">
+                    <img src="img/room1/idol.png" alt="">
+                </a>
             </div>
         </div>
     </div>
@@ -108,6 +111,9 @@ const changeImage = () => {
     myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
 
 }*/
+const ambient = () => {
+    document.getElementById('bgmusic').play();
+}
 
 </script>
 
