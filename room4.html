@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <audio id="bgmusic" src="audio/room4-amb.wav" preload="auto"></audio>
+    <audio id="pickup" src="audio/item-pickup.mp3" preload="auto"></audio>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/semantic-ui/2.4.1/semantic.min.css">
     
     <style>
@@ -130,8 +131,7 @@ function lightTorch(){
 
 function clickIdol(){
     document.getElementById('idolimg').src='img/empty.png';
-
-     
+    document.getElementById('pickup').play();  
 }
 
 </script>
