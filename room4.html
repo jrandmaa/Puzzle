@@ -119,7 +119,7 @@ const changeImage = () => {
 
 }*/
 
-const soundfx = new Howl({src: 'audio/item-pickup.mp3'});
+const soundfx = new Howl({src: 'audio/item-pickup.mp3'},true);
 
 const ambient = () => {
     document.getElementById('bgmusic').play();
@@ -138,6 +138,7 @@ function clickIdol(){
     soundfx.play();
     document.getElementById('idolimg').src='img/empty.png';
     document.getElementById('pickup').play();  
+    // "grabbed stone idol"
 }
 
 </script>
