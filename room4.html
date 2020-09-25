@@ -21,19 +21,43 @@
             margin-top: 10px;
         }
 
-        .statue {
+        /*.statue {
             background-image: url('img/room4/chest-2.png');
             background-repeat: no-repeat;
             background-size: 100%;
             width:300px;
             height:300px;
             margin-left:40%;
-        }
+        }*/
 
         .idol{
             margin-left:0%;
             margin-top:20%;
             display: inline-block;
+            animation: glow 2s infinite;
+        }
+
+        .backarrow{
+            position: absolute;
+            left: 5%;
+            top: 5%;
+
+        }
+
+        .basedesc{
+            position: absolute;
+            top: 50%;
+            left: 45%;
+            background-color: #fff2ac;
+            font-size: 18px;
+            opacity: 0%;
+            width: 200px;
+        }
+
+        @keyframes glow {
+        0% {opacity: 100%;}
+        50% {opacity: 70%;}
+        100% {opacity: 100%;}
         }
         
         .torch{
@@ -76,7 +100,16 @@
 
     </nav> -->
     <div class="wrapper">
+
+        <div class="backarrow">
+            <a href="room3.html" id="backLink">
+            <img src="img/backarrow.png" alt="back arrow">
+            </a>
+        </div>
+
+        <div class="basedesc" id="pickupmsg">Picked up a funky little idol...</div>
         <div class="idol">
+            
             <img src="img/empty.png" id="idolimg" onclick="clickIdol()" style="height: 300px;" alt="">
         </div>
         <!--<img src="img-sq/0.jpeg" alt="">
@@ -97,27 +130,16 @@
 
 <script>
 
-
-/*const pathNames = [
-        'img-sq/0.jpeg',
-        'img-sq/1.jpeg',
-        'img-sq/2.jpeg',
-        'img-sq/3.jpeg',
-        'img-sq/4.jpeg',
-        'img-sq/5.jpeg',
-        'img-sq/6.jpeg',
-        'img-sq/7.jpeg',
-
-    ];
-
-const myImageElement = document.body.querySelector('img');
-myImageElement.src = `${pathNames[1]}`;
-
-const changeImage = () => {
-
-    myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
-
-}*/
+var taken = false;
+if(location.search.substring(7) == "1"){
+    document.getElementById('bgmusic').play();
+    document.getElementById('torchimg').src='img/room4/torch.gif';
+    document.body.style.backgroundImage = "url('img/room4/cave-lit.png')";
+    taken = true;
+    
+    //TODO: 
+        //make torch button and idol buttons not work anymore
+}
 
 const soundfx = new Howl({src: 'audio/item-pickup.mp3'},true);
 
@@ -126,20 +148,26 @@ const ambient = () => {
 }
 
 function lightTorch(){
-    
-    document.getElementById('bgmusic').play();
-    document.getElementById('torchimg').src='img/room4/torch.gif';
-    document.body.style.backgroundImage = "url('img/room4/cave-lit.png')";
-    document.getElementById('idolimg').src='img/room1/idol-small-2.png';
-     
+    if(taken == false){
+        document.getElementById('torchimg').src='img/room4/torch.gif';
+        document.body.style.backgroundImage = "url('img/room4/cave-lit.png')";
+        document.getElementById('idolimg').src='img/room1/idol-small-2.png'; 
+    }
 }
 
-function clickIdol(){
-    soundfx.play();
-    document.getElementById('idolimg').src='img/empty.png';
-    document.getElementById('pickup').play();  
-    // "grabbed stone idol"
+const clickIdol = () => {
+    if(taken == false){
+       soundfx.play();
+        document.getElementById('idolimg').src='img/empty.png';
+        document.getElementById('pickupmsg').style.opacity = "0.6";
+        document.getElementById("backLink").href="room3.html?state=1"; 
+        taken = true;
+    }
 }
+
+const queryString = window.location.search;
+document.getElementById("backLink").href=document.getElementById("backLink").href + queryString;
+
 
 </script>
 

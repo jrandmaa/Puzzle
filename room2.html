@@ -42,6 +42,15 @@
             height:300px;
         }
 
+        .backarrow{
+            position: absolute;
+            left: 5%;
+            top: 5%;
+            width:50px;
+            height:50px;
+
+        }
+
         /*  Help from stackoverflow, just to keep my images from being blurry  */
         img { 
             image-rendering: optimizeSpeed;             /* STOP SMOOTHING, GIVE ME SPEED  */
@@ -72,9 +81,14 @@
     </nav> -->
 
     <div class="wrapper">
+        <div class="backarrow">
+            <a href="index.html" id="backLink">
+            <img src="img/backarrow.png" alt="back arrow">
+            </a>
+        </div>
         <!--<img src="img-sq/0.jpeg" alt="">-->
         <div class="boat">
-            <a href="room3.html">
+            <a href="room3.html" id="nextLink">
             <img src="img/room2/boat.png" alt="">
             </a>
         </div>
@@ -85,29 +99,17 @@
 <script>
 
 
-/*const pathNames = [
-        'img-sq/0.jpeg',
-        'img-sq/1.jpeg',
-        'img-sq/2.jpeg',
-        'img-sq/3.jpeg',
-        'img-sq/4.jpeg',
-        'img-sq/5.jpeg',
-        'img-sq/6.jpeg',
-        'img-sq/7.jpeg',
-
-    ];
-
-const myImageElement = document.body.querySelector('img');
-myImageElement.src = `${pathNames[1]}`;
-
-const changeImage = () => {
-
-    myImageElement.src = `${pathNames[Math.floor(Math.random()*pathNames.length)]}`;
-
-}*/
+//yo, maybe inventory if state=1 
+//or not f it
 const ambient = () => {
     document.getElementById('bgmusic').play();
 }
+
+//adds state to back link, if we have state
+
+const queryString = window.location.search;
+document.getElementById("backLink").href=document.getElementById("backLink").href + queryString;
+document.getElementById("nextLink").href=document.getElementById("nextLink").href + queryString;
 
 </script>
 
