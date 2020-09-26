@@ -124,7 +124,7 @@
     </div>
 
 
-
+<script src="libs/howler.js"></script>
 <script>
 
 
@@ -135,7 +135,7 @@
 -event on click
 -change url of links to add new info
 */
-//const victorySound = new Howl({ src: 'audio/thankyou.mp3' });
+const victorySound = new Howl({ src: 'audio/thank-you.mp3' });
 var idolObtained = false;
 if(location.search.substring(7) == "1"){
     idolObtained = true;
@@ -147,7 +147,7 @@ function placeIdol(){
     if(idolObtained){
         
         document.getElementById('idolimg').src='img/room1/r1-base2.png';
-        //victorySound.play();
+        victorySound.play();
     }
 }
 
