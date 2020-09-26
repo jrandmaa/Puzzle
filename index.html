@@ -137,17 +137,23 @@
 */
 const victorySound = new Howl({ src: 'audio/thank-you.mp3' });
 var idolObtained = false;
-if(location.search.substring(7) == "1"){
+var placed = false;
+if(location.search.substring(7) == "1" || location.search.substring(7) == "2"){
     idolObtained = true;
     document.getElementById("desc1").textContent="";
     //document.getElementById('idolimg').src='img/room1/r1-base2.png';
+    if(location.search.substring(7) == "2"){
+        document.getElementById('idolimg').src='img/room1/r1-base2.png';
+        placed = true;
+    }
 }
 
 function placeIdol(){
-    if(idolObtained){
-        
+    if(idolObtained && !placed){
         document.getElementById('idolimg').src='img/room1/r1-base2.png';
         victorySound.play();
+        placed = true;
+        document.getElementById("nextLink").href="room2.html?state=2"; 
     }
 }
 

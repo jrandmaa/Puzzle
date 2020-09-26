@@ -131,7 +131,7 @@
 <script>
 
 var taken = false;
-if(location.search.substring(7) == "1"){
+if(location.search.substring(7) == "1" || location.search.substring(7) == "2"){
     document.getElementById('bgmusic').play();
     document.getElementById('torchimg').src='img/room4/torch.gif';
     document.body.style.backgroundImage = "url('img/room4/cave-lit.png')";
