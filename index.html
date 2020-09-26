@@ -8,6 +8,8 @@
     
     <style>
         
+        
+
         body {
             background-image: url('img/room1/room1-bg-3.png'); 
             background-size: cover;
@@ -93,7 +95,7 @@
 
 
 
-    <title>Document</title>
+    <title>Lost...</title>
 </head>
 <body onmousemove="ambient()">
     
@@ -110,8 +112,8 @@
             <!--<img src="img-sq/0.jpeg" alt="">-->
             <div id="content"></div>
             <div class="statue">
-                <img src="img/room1/r1-base1.png" alt="">
-                <div class="basedesc">It looks like I could put something on it...</div>
+                <img src="img/room1/r1-base1.png" id="idolimg" onclick="placeIdol()" alt="">
+                <div class="basedesc" id="desc1">It looks like I could put something on it...</div>
             </div>
             <div class="coastsign">
                 <a href="room2.html" id="nextLink">
@@ -133,20 +135,35 @@
 -event on click
 -change url of links to add new info
 */
+//const victorySound = new Howl({ src: 'audio/thankyou.mp3' });
+var idolObtained = false;
+if(location.search.substring(7) == "1"){
+    idolObtained = true;
+    document.getElementById("desc1").textContent="";
+    //document.getElementById('idolimg').src='img/room1/r1-base2.png';
+}
+
+function placeIdol(){
+    if(idolObtained){
+        
+        document.getElementById('idolimg').src='img/room1/r1-base2.png';
+        //victorySound.play();
+    }
+}
+
 const ambient = () => {
     document.getElementById('bgmusic').play();
 }
 
 const queryString = window.location.search;
-document.getElementById("content").innerHTML = queryString;
+//document.getElementById("content").innerHTML = queryString;  //<-- this was for debug
+document.getElementById("nextLink").href=document.getElementById("nextLink").href + queryString;
+
 
 const myImageElement = document.body.querySelector('img');
 myImageElement.src = `${pathNames[1]}`;
 
 
-const queryString = window.location.search;
-//document.getElementById("backLink").href=document.getElementById("backLink").href + queryString;
-document.getElementById("nextLink").href=document.getElementById("nextLink").href + queryString;
 
 </script>
 
